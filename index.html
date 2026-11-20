@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Link to QR Code</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Link to QR Code</h1>
+    <p class="sub">Paste a link and get a QR code instantly.</p>
+
+    <form id="form" autocomplete="off">
+      <label for="url">Link or text</label>
+      <input id="url" type="text" placeholder="https://example.com" autofocus>
+
+      <label for="ecc">Error correction</label>
+      <select id="ecc">
+        <option value="L">Low (7%)</option>
+        <option value="M" selected>Medium (15%)</option>
+        <option value="Q">Quartile (25%)</option>
+        <option value="H">High (30%)</option>
+      </select>
+
+      <button type="submit">Generate</button>
+    </form>
+
+    <p id="error" class="error" hidden></p>
+
+    <div id="result" class="result" hidden>
+      <canvas id="qr"></canvas>
+      <button id="download" type="button">Download PNG</button>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
